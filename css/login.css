@@ -1,0 +1,510 @@
+/* Reset e configurações básicas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, 
+        #ff9a9e 0%, 
+        #fecfef 25%, 
+        #fecfef 50%, 
+        #a8edea 75%, 
+        #fed6e3 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Decorações flutuantes */
+.floating-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-item {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+/* Posicionamento dos elementos flutuantes */
+.star1 { top: 10%; left: 5%; animation-delay: 0s; color: #ffd700; }
+.heart1 { top: 15%; right: 8%; animation-delay: 1s; color: #ff69b4; }
+.rainbow1 { top: 25%; left: 15%; animation-delay: 2s; color: #ff6b9d; }
+.cloud1 { top: 35%; right: 20%; animation-delay: 3s; color: #87ceeb; }
+.balloon1 { top: 45%; left: 8%; animation-delay: 4s; color: #ff4757; }
+.star2 { top: 55%; right: 12%; animation-delay: 5s; color: #ffa502; }
+.flower1 { top: 65%; left: 20%; animation-delay: 0.5s; color: #ff6b9d; }
+.sun1 { top: 75%; right: 25%; animation-delay: 1.5s; color: #ffd32a; }
+.butterfly1 { top: 20%; left: 80%; animation-delay: 2.5s; color: #a55eea; }
+.candy1 { top: 40%; right: 5%; animation-delay: 3.5s; color: #ff3838; }
+.rocket1 { top: 60%; left: 85%; animation-delay: 4.5s; color: #0984e3; }
+.planet1 { top: 80%; right: 15%; animation-delay: 5.5s; color: #6c5ce7; }
+.unicorn1 { top: 30%; left: 3%; animation-delay: 1.2s; color: #fd79a8; }
+.cake1 { top: 50%; right: 30%; animation-delay: 2.8s; color: #fdcb6e; }
+.gift1 { top: 70%; left: 12%; animation-delay: 4.2s; color: #e17055; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(-3deg); }
+    75% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Container principal */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.login-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    max-width: 450px;
+    width: 100%;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-content::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #ff6b9d, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff6b9d);
+    border-radius: 33px;
+    z-index: -1;
+    animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Logo e título */
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo-fallback {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff6b9d, #4ecdc4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.logo-fallback i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.site-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ff6b9d, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.site-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Container do formulário */
+.form-container {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-header h2 i {
+    margin-right: 10px;
+    color: #ff6b9d;
+}
+
+.form-header p {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Alertas */
+.alert {
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    animation: alertSlide 0.3s ease-out;
+}
+
+@keyframes alertSlide {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.alert i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #ff6b9d, #ff8a80);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #96ceb4, #a8e6cf);
+    color: white;
+    box-shadow: 0 5px 15px rgba(150, 206, 180, 0.3);
+}
+
+/* Grupos de input */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.input-icon i {
+    font-size: 1.2rem;
+    color: #ff6b9d;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 18px 20px 18px 60px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #ff6b9d, #4ecdc4, #45b7d1) border-box;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+}
+
+.input-group input::placeholder {
+    color: #999;
+    font-weight: 500;
+}
+
+/* Toggle de senha */
+.password-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 3;
+    color: #ff6b9d;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #4ecdc4;
+}
+
+/* Checkbox personalizado */
+.remember-me {
+    margin-bottom: 25px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+}
+
+.checkbox-container input {
+    display: none;
+}
+
+.checkmark {
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(135deg, #ff6b9d, #4ecdc4);
+    border-radius: 8px;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark::after {
+    content: '✓';
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+    opacity: 1;
+}
+
+.checkbox-container:hover .checkmark {
+    transform: scale(1.1);
+}
+
+.checkbox-text {
+    font-size: 1rem;
+}
+
+/* Botões */
+.btn {
+    width: 100%;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b9d, #4ecdc4);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #96ceb4, #a8e6cf);
+    color: white;
+    box-shadow: 0 10px 30px rgba(150, 206, 180, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(150, 206, 180, 0.4);
+}
+
+/* Footer do formulário */
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.form-footer p {
+    color: #666;
+    font-weight: 500;
+}
+
+.link-primary {
+    color: #ff6b9d;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.link-primary:hover {
+    color: #4ecdc4;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .login-content {
+        padding: 30px 25px;
+        margin: 10px;
+        border-radius: 25px;
+    }
+    
+    .site-title {
+        font-size: 2rem;
+    }
+    
+    .floating-item {
+        font-size: 1.5rem;
+    }
+    
+    /* Reposicionar elementos flutuantes para mobile */
+    .star1 { top: 5%; left: 3%; }
+    .heart1 { top: 8%; right: 5%; }
+    .rainbow1 { top: 15%; left: 10%; }
+    .cloud1 { top: 25%; right: 8%; }
+    .balloon1 { top: 35%; left: 5%; }
+    .star2 { top: 45%; right: 10%; }
+    .flower1 { top: 55%; left: 15%; }
+    .sun1 { top: 65%; right: 12%; }
+    .butterfly1 { top: 75%; left: 8%; }
+    .candy1 { top: 85%; right: 6%; }
+    .rocket1 { top: 20%; left: 85%; }
+    .planet1 { top: 40%; right: 3%; }
+    .unicorn1 { top: 60%; left: 80%; }
+    .cake1 { top: 80%; right: 20%; }
+    .gift1 { top: 90%; left: 25%; }
+}
+
+@media (max-width: 480px) {
+    .login-content {
+        padding: 25px 20px;
+    }
+    
+    .site-title {
+        font-size: 1.8rem;
+    }
+    
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .floating-item {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animações de entrada */
+.login-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeitos especiais */
+.login-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Transições suaves entre formulários */
+.form-container {
+    transition: all 0.5s ease;
+}
+
+.form-container.fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.form-container.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
